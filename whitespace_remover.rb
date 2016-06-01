@@ -8,7 +8,7 @@ def remove_whitespace (filePath, tabSize)
   tmpFile = File.open(tmpFilePath,"w+")
   file.each_line do |line|
     newLine = line.rstrip + $/
-    newLine = newLine.gsub(/^([\t])+/){ ' ' * tabSize * "#{$&}".size }
+    newLine = newLine.gsub(/^([\t])+/){ ' ' * Integer(tabSize) * "#{$&}".size }
     tmpFile.write(newLine)
   end
   file.close
